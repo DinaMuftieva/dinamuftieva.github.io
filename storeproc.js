@@ -349,7 +349,16 @@
                 } finally {
                     //Socket Connection
                     //****************************************** 
-                    ssocket = io(that._export_settings.socketurl);
+                    ssocket = io(that._export_settings.socketurl, {
+                        withCredentials: true,  
+                        transportOptions: {    
+                            polling: {      
+                                extraHeaders: {        
+                                    "my-custom-header": "abcd"      
+                                }    
+                            }  
+                        }
+                    });
 
                     ssocket.on('disconnect', function() {
                         console.log("socket disconnected: " + socketid);
