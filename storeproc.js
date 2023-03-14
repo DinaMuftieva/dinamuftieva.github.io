@@ -350,7 +350,7 @@
                     //Socket Connection
                     //****************************************** 
                     ssocket = io(that._export_settings.socketurl, {
-                        // withCredentials: true,  
+                        withCredentials: true,  
                         transportOptions: {    
                             polling: {      
                                 extraHeaders: {        
